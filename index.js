@@ -1,7 +1,7 @@
 const puppeteer = require('puppeteer');
 
 const url = 'http://localhost:4000';
-const page = 'login'; // '' or 'machines/71'
+const route = '/static/back'; // '/' or '/machines/71'
 
 (async () => {
   const browser = await puppeteer.launch({
@@ -13,7 +13,7 @@ const page = 'login'; // '' or 'machines/71'
   });
   const page = await browser.newPage();
 
-  await page.goto(`${url}/${page}`, {
+  await page.goto(`${url}${route}`, {
     waitUntil: 'domcontentloaded'
     // waitUntil: 'PrebootComplete'
   });
